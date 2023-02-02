@@ -25,6 +25,9 @@ model_q2 = tensorflow.keras.models.load_model('lstm/Q2LSTM.hdf5')
 model_q3 = tensorflow.keras.models.load_model('lstm/Q3LSTM.hdf5')
 model_q4 = tensorflow.keras.models.load_model('lstm/Q4LSTM.hdf5')
 model_q5 = tensorflow.keras.models.load_model('lstm/Q5LSTM.hdf5')
+model_q6 = tensorflow.keras.models.load_model('lstm/Q6LSTM.hdf5')
+model_q7 = tensorflow.keras.models.load_model('lstm/Q7LSTM.hdf5')
+model_q8 = tensorflow.keras.models.load_model('lstm/Q8LSTM.hdf5')
 rank = ['Bad', 'Below Average', 'Average', 'Above Average', 'Good']
 
 
@@ -52,7 +55,14 @@ def home(request):
     elif(ques == 4):
         pred = model_q4.predict(padded)
     elif(ques == 5):
-        pred = model_q5.predict(padded)       
+        pred = model_q5.predict(padded)    
+    elif(ques == 6):
+        pred = model_q5.predict(padded)  
+    elif(ques == 7):
+        pred = model_q5.predict(padded)    
+    elif(ques == 8):
+        pred = model_q5.predict(padded)    
+       
     print(seq)
     print(pred, rank[np.argmax(pred)])
     ranking = rank[np.argmax(pred)]
